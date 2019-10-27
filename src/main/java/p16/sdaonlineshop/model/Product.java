@@ -1,7 +1,27 @@
-package java.p16.sdaonlineshop.model;
+package p16.sdaonlineshop.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+@Entity
 public class Product {
+
+    @Id
+    @GeneratedValue(generator = "productId")
+    @SequenceGenerator(name = "productId", sequenceName = "productId", allocationSize = 1)
+    private int id;
     private String name;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private double price;
 
     public Product(String name, double price) {
@@ -21,7 +41,7 @@ public class Product {
         return price;
     }
 
-    protected void setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
