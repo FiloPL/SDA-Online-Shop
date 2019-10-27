@@ -14,13 +14,23 @@ public class Product {
     private Long id;
     private String name;
     private double price;
+    private int amount;
 
 
-    public Product(Long id, String name, double price) {
+    public Product(Long id, String name, double price, int amount) {
         this.id=id;
         this.name = name;
         this.price = price;
+        this.amount = amount;
 
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Long getId() {
