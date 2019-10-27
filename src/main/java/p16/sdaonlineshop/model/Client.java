@@ -1,10 +1,16 @@
 package p16.sdaonlineshop.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import java.util.Objects;
 
 @Entity
 public class Client {
+    @Id
+    @GeneratedValue(generator = "clientSeq")
+    @SequenceGenerator(name = "clientSeq", sequenceName = "client_seq", allocationSize = 1)
     private String name;
     private String lastName;
     private String city;
