@@ -3,11 +3,12 @@ package p16.sdaonlineshop.model;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class Orders {
 
-    private Date date;
+    private LocalDate date;
     @Id
     @GeneratedValue(generator = "productId")
     @SequenceGenerator(name = "productId", sequenceName = "productId", allocationSize = 1)
@@ -17,6 +18,11 @@ public class Orders {
     private String status;
     private boolean invoice;
 
+    private String city;
+    private String street;
+    private String streetNumber;
+    private String postCode;
+
     public Orders() {
     }
 
@@ -24,7 +30,7 @@ public class Orders {
         return String.valueOf(OrderStatus.NOT_PAYED);
     }
 
-    public void addOrder(Date date, int quantity) {
+    public void addOrder(LocalDate date, int quantity) {
         this.date = date;
         this.quantity = quantity;
         this.status = String.valueOf(OrderStatus.NOT_PAYED);
@@ -35,15 +41,53 @@ public class Orders {
         this.status = String.valueOf(OrderStatus.CANCEL);
     }
 
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
+
+    public void setStreetNumber(String streetNumber) {
+        this.streetNumber = streetNumber;
+    }
+
+    public String getPostCode() {
+        return postCode;
+    }
+
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
+
+
     public int getOrderID() {
         return orderID;
     }
-    public Date getDate() {
+
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public LocalDate setDate() {
+        this.date = LocalDate.now();
     }
 
     public int getQuantity() {
