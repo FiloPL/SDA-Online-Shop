@@ -10,24 +10,24 @@ public class Product {
 
     @Id
     @GeneratedValue(generator = "productId")
-    @SequenceGenerator(name = "productId", sequenceName = "productId", allocationSize = 1)
-    private int id;
+    @SequenceGenerator(name = "productId", sequenceName = "product_id", allocationSize = 1)
+    private Long id;
     private String name;
     private double price;
 
 
-    public Product(int id, String name, double price) {
+    public Product(Long id, String name, double price) {
         this.id=id;
         this.name = name;
         this.price = price;
 
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
