@@ -11,6 +11,8 @@ public class Client {
     @Id
     @GeneratedValue(generator = "clientSeq")
     @SequenceGenerator(name = "clientSeq", sequenceName = "client_seq", allocationSize = 1)
+    private int id;
+
     private String name;
     private String lastName;
     private String city;
@@ -23,24 +25,12 @@ public class Client {
     public Client() {
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Client client = (Client) o;
-        return Objects.equals(name, client.name) &&
-                Objects.equals(lastName, client.lastName) &&
-                Objects.equals(city, client.city) &&
-                Objects.equals(street, client.street) &&
-                Objects.equals(streetNumber, client.streetNumber) &&
-                Objects.equals(postCode, client.postCode) &&
-                Objects.equals(email, client.email) &&
-                Objects.equals(password, client.password);
+    public int getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, lastName, city, street, streetNumber, postCode, email, password);
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -105,5 +95,26 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return id == client.id &&
+                Objects.equals(name, client.name) &&
+                Objects.equals(lastName, client.lastName) &&
+                Objects.equals(city, client.city) &&
+                Objects.equals(street, client.street) &&
+                Objects.equals(streetNumber, client.streetNumber) &&
+                Objects.equals(postCode, client.postCode) &&
+                Objects.equals(email, client.email) &&
+                Objects.equals(password, client.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastName, city, street, streetNumber, postCode, email, password);
     }
 }
