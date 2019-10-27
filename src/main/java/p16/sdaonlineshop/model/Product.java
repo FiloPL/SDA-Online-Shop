@@ -13,6 +13,13 @@ public class Product {
     @SequenceGenerator(name = "productId", sequenceName = "productId", allocationSize = 1)
     private int id;
     private String name;
+    private double price;
+
+
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
+    }
 
     public int getId() {
         return id;
@@ -22,12 +29,7 @@ public class Product {
         this.id = id;
     }
 
-    private double price;
 
-    public Product(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
 
     public String getName() {
         return name;
@@ -47,4 +49,5 @@ public class Product {
 
     public Product() {
     }
+
 }
