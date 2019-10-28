@@ -87,7 +87,7 @@ public class Orders {
     }
 
     public LocalDate setDate() {
-        this.date = LocalDate.now();
+        return this.date = LocalDate.now();
     }
 
     public int getQuantity() {
